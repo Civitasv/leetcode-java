@@ -35,7 +35,7 @@ public class BalancedBinaryTree {
         }
         if (root.right != null) {
             int val = height(root.right) + 1;
-            depth = depth > val ? depth : val;
+            depth = Math.max(depth, val);
         }
         return depth;
     }
