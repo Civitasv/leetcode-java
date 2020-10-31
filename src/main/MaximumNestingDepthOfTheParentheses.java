@@ -1,0 +1,15 @@
+package main;
+
+
+public class MaximumNestingDepthOfTheParentheses {
+    public int maxDepth(String s) {
+        int res = 0, cur = 0;
+        for (int i = 0; i < s.length(); ++i) {
+            if (s.charAt(i) == '(')
+                res = Math.max(res, ++cur);
+            else if (s.charAt(i) == ')')
+                cur--;
+        }
+        return res;
+    }
+}
