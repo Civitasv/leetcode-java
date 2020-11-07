@@ -16,7 +16,7 @@ class SwapNodesInPairsTest {
         node2.next = node3;
         node3.next = node4;
 
-        ListNode node = pairs.swapPairs(node1);;
+        ListNode node = pairs.swapPairsRecursion(node1);;
         while (node != null) {
             System.out.println(node.val);
             node = node.next;
