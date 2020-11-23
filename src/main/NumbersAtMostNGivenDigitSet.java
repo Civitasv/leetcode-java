@@ -12,37 +12,25 @@ package main;
  * 1 <= n <= 109
  */
 public class NumbersAtMostNGivenDigitSet {
-    public int atMostNGivenDigitSet(String[] digits, int n) {
-        int len = length(n), count = 0, num = digits.length;
-        for (int i = 1; i < len; i++) {
-            count += A(num, i);
-        }
-        return 0;
-    }
+    public int atMostNGivenDigitSet(String[] D, int N) {
+        String S = String.valueOf(N);
+        int K = S.length();
+        int[] dp = new int[K + 1];
+        dp[K] = 1;
 
-    public int length(int n) {
-        int count = 0;
-        while (n != 0) {
-            count++;
-            n /= 10;
+        for (int i = K - 1; i >= 0; --i) { // 计算位数等于N的位数时的个数
+            // compute dp[i]
+            int Si = S.charAt(i) - '0';
+            for (String d : D) {
+                if (Integer.parseInt(d) < Si) // 小于则随便排
+                    dp[i] += Math.pow(D.length, K - i - 1);
+                else if (Integer.parseInt(d) == Si) // 否则该数就等于dp[i+1]
+                    dp[i] += dp[i + 1];
+            }
         }
-        return count;
-    }
 
-    public int A(int m, int n) {
-        if (m < n)
-            throw new IllegalStateException("m can't less than n");
-        int res = 1;
-        while (n != 0) {
-            res *= m--;
-            n--;
-        }
-        return res;
-    }
-
-    public int C(int m, int n) {
-        if (m < n)
-            throw new IllegalStateException("m can't less than n");
-        return A(m, n) / A(n, n);
+        for (int i = 1; i < K; ++i) // 位数小于N的位数时的个数
+            dp[0] += Math.pow(D.length, i);
+        return dp[0];
     }
 }
