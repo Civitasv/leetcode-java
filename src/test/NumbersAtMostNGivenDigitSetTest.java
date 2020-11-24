@@ -8,6 +8,5 @@ class NumbersAtMostNGivenDigitSetTest {
     @Test
     void test() {
         NumbersAtMostNGivenDigitSet set = new NumbersAtMostNGivenDigitSet();
-        System.out.println(set.length(100));
     }
 }
