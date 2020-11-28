@@ -17,9 +17,11 @@ public class ReversePairs {
 
         Arrays.sort(copy);
 
-        for (int ele : nums) {
-            res += bit.query(index(copy, 2L * ele + 1));
-            bit.insert(1, index(copy, ele));
+        for (int i = 0; i < n; i++) {
+            int ele = nums[i];
+            int b = bit.query(index(copy, 2L * ele + 1) - 1);
+            res += i - b;
+            bit.update(1, index(copy, ele));
         }
 
         return res;

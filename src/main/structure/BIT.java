@@ -14,18 +14,18 @@ public class BIT {
         return x & -x;
     }
 
-    public void insert(int val, int i) {
-        while (i > 0) {
+    public void update(int val, int i) {
+        while (i < n + 1) {
             tree[i] += val;
-            i -= lowbit(i);
+            i += lowbit(i);
         }
     }
 
     public int query(int i) {
         int res = 0;
-        while (i < n + 1) {
+        while (i > 0) {
             res += tree[i];
-            i += lowbit(i);
+            i -= lowbit(i);
         }
         return res;
     }
