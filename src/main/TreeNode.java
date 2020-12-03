@@ -33,6 +33,8 @@ public class TreeNode {
             return this.val + "--left--" + this.left.toString() + "--right--" + this.right.toString();
     }
 
+    // DFS 使用递归或栈
+    // BFS 使用队列
     public String toString2() {
         StringBuilder res = new StringBuilder();
         Deque<TreeNode> deque = new ArrayDeque<>();

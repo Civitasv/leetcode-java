@@ -24,4 +24,14 @@ public class SwapNodesInPairs {
         return res;
     }
 
+    public ListNode swapPairsRecursion(ListNode head) {
+        if (head == null || head.next == null)
+            return head;
+        ListNode res = head.next;
+        head.next = res.next;
+        res.next = head;
+        head.next = swapPairsRecursion(head.next);
+        return res;
+    }
+
 }
