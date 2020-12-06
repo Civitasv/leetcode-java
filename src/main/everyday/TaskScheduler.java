@@ -6,19 +6,24 @@ import java.util.Map;
 
 public class TaskScheduler {
     public int leastInterval(char[] tasks, int n) {
-        int[] task = new int[26];
-        for (char c : tasks) {
-            task[c - 'A']++;
+        // result = tasks.length + idle
+        // idle = empty slots - (n - maxTimes * maxFrequency)
+
+        int[] frequency = new int[26];
+        int maxFrequency = 0;
+        int maxTimes = 1;
+
+        for (char task : tasks) {
+            frequency[task - 'A']++;
+            if (frequency[task - 'A'] == maxFrequency)
+                maxTimes++;
+            if (frequency[task - 'A'] > maxFrequency) {
+                maxFrequency = frequency[task - 'A'];
+                maxTimes = 1;
+            }
         }
-        Arrays.sort(task);
-        int maxTimes = task[25];
-        int maxCount = 1;
-        for (int i = 25; i >= 1; i--) {
-            if (task[i] == task[i - 1])
-                maxCount++;
-            else
-                break;
-        }
-        return Math.max((maxTimes - 1) * (n + 1) + maxCount, tasks.length);
+
+        int idle = Math.max(0, (maxFrequency - 1) * (n - maxTimes + 1) - (tasks.length - maxTimes * maxFrequency));
+        return tasks.length + idle;
     }
 }
