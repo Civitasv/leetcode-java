@@ -8,6 +8,6 @@ class ConnectContinuousTest {
     @Test
     void test() {
         ConnectContinuous connectContinuous = new ConnectContinuous();
-        System.out.println(connectContinuous.concatenatedBinary(12));
+        System.out.println(connectContinuous.concatenatedBinary(100000));
     }
 }
