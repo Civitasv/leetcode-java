@@ -1,6 +1,6 @@
 # 【翻译】类似“翻转对”问题背后的一般原则
 
-> 原文：https://leetcode.com/problems/reverse-pairs/discuss/97268/General-principles-behind-problems-similar-to-%22Reverse-Pairs%22
+> 原文：<https://leetcode.com/problems/reverse-pairs/discuss/97268/General-principles-behind-problems-similar-to-%22Reverse-Pairs%22>
 
 基于`BST`、`BIT`、`Merge-Sort`等解法已经相当多了，因此，我更想针对这些解法和其它类似问题背后的一般原则进行一些讨论。
 
@@ -162,7 +162,7 @@ public int reversePairs(int[] nums) {
 
 private int index(int[] arr, long val) {
     int l = 0, r = arr.length - 1, m = 0;
-    	
+     
     while (l <= r) {
     	m = l + ((r - l) >> 1);
     		
