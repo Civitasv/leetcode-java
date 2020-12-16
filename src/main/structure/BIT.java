@@ -9,7 +9,7 @@ public class BIT {
         this.tree = new int[n + 1];
     }
 
-    // 从右往左，搜索到第一个为0的，暂停，返回值
+    // 从右往左，搜索到第一个为0的，暂停，返回值 计算机内部表示为补码
     private int lowbit(int x) {
         return x & -x;
     }
