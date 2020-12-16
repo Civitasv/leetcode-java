@@ -1,7 +1,7 @@
 package test;
 
 
-import main.WordPattern;
+import main.everyday.WordPattern;
 import org.junit.jupiter.api.Test;
 
 class WordPatternTest {
