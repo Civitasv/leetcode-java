@@ -51,4 +51,12 @@ public class LeastKey {
         }
         return result;
     }
+
+    public int[] getLeastNumbers3(int[] arr, int k) {
+        int[] result = new int[k];
+        if (k == 0)
+            return result;
+        
+        return result;
+    }
 }
