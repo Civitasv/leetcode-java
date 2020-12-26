@@ -1,5 +1,8 @@
 package main;
 
+import java.util.ArrayDeque;
+import java.util.Deque;
+import java.util.Queue;
 import java.util.Stack;
 
 /**
@@ -27,7 +30,7 @@ public class MaximalRectangle {
 
     private int max(int[] heights) {
         int res = 0;
-        Stack<Integer> stack = new Stack<>();
+        Deque<Integer> stack = new ArrayDeque<>();
         int[] new_heights = new int[heights.length + 2];
         for (int i = 1; i < heights.length + 1; i++) {
             new_heights[i] = heights[i - 1];
