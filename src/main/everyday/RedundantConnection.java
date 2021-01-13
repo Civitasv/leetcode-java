@@ -8,12 +8,7 @@ import java.util.Set;
  */
 public class RedundantConnection {
     public int[] findRedundantConnection(int[][] edges) {
-        Set<Integer> set = new HashSet<>();
-        for (int[] edge : edges) {
-            set.add(edge[0]);
-            set.add(edge[1]);
-        }
-        UnionFind uf = new UnionFind(set.size() + 1);
+        UnionFind uf = new UnionFind(edges.length + 1);
         for (int[] edge : edges) {
             int a = uf.find(edge[0]);
             int b = uf.find(edge[1]);
