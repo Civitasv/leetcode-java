@@ -22,10 +22,11 @@ public class MaxMatrix {
                     heights[j] = 0;
                 }
             }
-            Arrays.sort(heights);
-            for (int k = n - 1; k >= 0 && heights[k] > 0; k--) {
+            int[] sortedHeights = heights.clone();
+            Arrays.sort(sortedHeights);
+            for (int k = n - 1; k >= 0 && sortedHeights[k] > 0; k--) {
                 int w = n - k;
-                int h = heights[k];
+                int h = sortedHeights[k];
                 res = Math.max(res, w * h);
             }
         }
