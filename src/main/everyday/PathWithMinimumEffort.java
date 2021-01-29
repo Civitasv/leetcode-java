@@ -6,15 +6,8 @@ package main.everyday;
 public class PathWithMinimumEffort {
     public int minimumEffortPath(int[][] heights) {
         int rows = heights.length, cols = heights[0].length;
-        int min = heights[0][0], max = heights[0][0];
-        for (int[] height : heights) {
-            for (int j = 0; j < cols; j++) {
-                min = Math.min(min, height[j]);
-                max = Math.max(max, height[j]);
-            }
-        }
         // 二分搜索
-        int lo = 0, hi = max - min, ans = 0;
+        int lo = 0, hi = 999999, ans = 0;
         while (lo <= hi) {
             int mid = lo + (hi - lo) / 2;
             boolean[][] vi = new boolean[rows][cols];
