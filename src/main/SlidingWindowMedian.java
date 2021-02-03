@@ -68,7 +68,7 @@ public class SlidingWindowMedian {
         while (lo <= hi) {
             int mid = lo + (hi - lo) / 2;
             int ele = list.get(mid);
-            if (ele >= val) {
+            if (ele > val) {
                 hi = mid - 1;
             } else {
                 lo = mid + 1;
