@@ -15,7 +15,7 @@ import java.util.PriorityQueue;
  */
 public class SlidingWindowMaximum {
     public int[] maxSlidingWindow(int[] nums, int k) {
-        if (k == 1)
+        if (nums.length == 0 || k == 1)
             return nums;
         // 存储下标，下标应从小到大，对应的值应从大到小
         Deque<Integer> deque = new ArrayDeque<>();
