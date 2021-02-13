@@ -7,7 +7,8 @@ class KthLargestElementInAStreamTest {
 
     @Test
     void test() {
-        KthLargestElementInAStream stream = new KthLargestElementInAStream(3, new int[]{4, 5, 8, 2});
+        KthLargestElementInAStream stream = new KthLargestElementInAStream(3, new int[]{4, 5, 8});
+        System.out.println(stream.add(2));
         System.out.println(stream.add(3));
         System.out.println(stream.add(5));
         System.out.println(stream.add(10));
