@@ -6,34 +6,26 @@ import java.util.Map;
 
 public class DegreeOfAnArray {
     public int findShortestSubArray(int[] nums) {
-        Map<Integer, Integer> map = new HashMap<>();
+        Map<Integer, int[]> map = new HashMap<>();
         int max = 0;
-        for (int num : nums) {
-            if (map.containsKey(num))
-                map.put(num, map.get(num) + 1);
-            else map.put(num, 1);
-            max = Math.max(max, map.get(num));
+        for (int i = 0; i < nums.length; i++) {
+            int num = nums[i];
+            if (map.containsKey(num)) {
+                int[] vals = map.get(num);
+                vals[0]++;
+                vals[2] = i;
+            } else {
+                map.put(num, new int[]{1, i, i});
+            }
+            max = Math.max(max, map.get(num)[0]);
         }
         int shortest = Integer.MAX_VALUE;
         for (int key : map.keySet()) {
-            if (map.get(key) == max) {
-                int[] vals = getStartAndEnd(nums, key);
-                shortest = Math.min(shortest, vals[1] - vals[0] + 1);
+            int[] vals = map.get(key);
+            if (vals[0] == max) {
+                shortest = Math.min(shortest, vals[2] - vals[1] + 1);
             }
         }
         return shortest;
-    }
-
-    private int[] getStartAndEnd(int[] nums, int num) {
-        int start = -1, end = -1;
-        for (int i = 0; i < nums.length; i++) {
-            if (nums[i] == num) {
-                if (start == -1) {
-                    start = i;
-                    end = i;
-                } else end = i;
-            }
-        }
-        return new int[]{start, end};
     }
 }
