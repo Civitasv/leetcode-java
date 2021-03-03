@@ -1,7 +1,7 @@
 package test;
 
 
-import main.RemoveElement;
+import main.everyday.RemoveElement;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
