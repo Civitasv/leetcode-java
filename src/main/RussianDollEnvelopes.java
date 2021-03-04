@@ -17,16 +17,16 @@ public class RussianDollEnvelopes {
                 return o2[1] - o1[1];
             }
         });
-        int max = 1;
         int[] dp = new int[envelopes.length];
-        dp[0] = 1;
-        for (int i = 1; i < envelopes.length; i++) {
-            dp[i] = 1;
-            for (int j = 0; j < i; j++) {
-                if (envelopes[i][1] > envelopes[j][1]) dp[i] = Math.max(dp[i], dp[j] + 1);
-            }
-            max = Math.max(max, dp[i]);
+        int len = 0;
+        for (int[] envelope : envelopes) {
+            int index = Arrays.binarySearch(dp, 0, len, envelope[1]);
+            if (index < 0)
+                index = -(index + 1);
+            dp[index] = envelope[1];
+            if (index == len)
+                len++;
         }
-        return max;
+        return len;
     }
 }
