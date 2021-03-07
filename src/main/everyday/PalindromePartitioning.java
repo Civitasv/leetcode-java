@@ -7,7 +7,6 @@ import java.util.*;
  */
 public class PalindromePartitioning {
     public List<List<String>> partition(String s) {
-        int n = s.length();
         List<List<String>> res = new ArrayList<>();
         backTrack(res, s, new ArrayDeque<>());
         return res;
