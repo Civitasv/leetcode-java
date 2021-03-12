@@ -52,6 +52,6 @@ public class MyHashSet {
     }
 
     private int hash(int key) {
-        return key % BASE;
+        return (Objects.hash(key) & 0x7fffffff) % BASE;
     }
 }
