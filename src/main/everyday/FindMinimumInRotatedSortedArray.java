@@ -5,11 +5,12 @@ package main.everyday;
  */
 public class FindMinimumInRotatedSortedArray {
     public int findMin(int[] nums) {
-        for (int i = 0; i < nums.length - 1; i++) {
-            if (nums[i] > nums[i + 1]) {
-                return nums[i + 1];
-            }
+        int lo = 0, hi = nums.length - 1;
+        while (lo < hi) {
+            int mid = lo + ((hi - lo) >> 1);
+            if (nums[mid] >= nums[hi]) lo = mid + 1;
+            else hi = mid;
         }
-        return nums[0];
+        return nums[lo];
     }
 }
