@@ -1,7 +1,5 @@
 package main;
 
-import com.sun.org.apache.xpath.internal.functions.FuncFalse;
-
 import java.util.Arrays;
 
 public class Contest1 {
