@@ -4,6 +4,13 @@ import java.util.*;
 
 /**
  * 基于时间的键值存储
+ * <p>
+ * 思路：
+ * 由于timestamp严格递增，我们只需要存储 String 键 所对应的所有值即可
+ * Pair 包括时间戳和其具体 String 值，其 compareTo 方法应该为 timestamp 之间的比较
+ * <p>
+ * 在get方法中，我们首先获取 key 所对应的全部 Pair，然后对其进行二分搜索即可获取不大于给定 timestamp 的 Pair，从而获得结果
+ * 其中二分搜索需要注意区间可见性
  */
 public class TimeBasedKeyValueStore {
     static class Pair implements Comparable<Pair> {
