@@ -1,4 +1,4 @@
-package main.everyday;
+package main.tag.dichotomy.easy;
 
 /**
  * 排列硬币

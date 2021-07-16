@@ -1,6 +1,6 @@
 package test;
 
-import main.everyday.ArrangingCoins;
+import main.tag.dichotomy.easy.ArrangingCoins;
 import org.junit.jupiter.api.Test;
 
 class ArrangingCoinsTest {
